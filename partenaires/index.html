@@ -116,6 +116,24 @@
   .micro{font-size:12.5px;line-height:1.65;color:var(--mute);max-width:28rem}
   .micro b{color:var(--paper);font-weight:400}
 
+  /* La carte « rémunération » : le modèle à l'usage, dit en une ligne sous le CTA. */
+  .pay{
+    margin-top:clamp(1.9rem,3.2vw,2.5rem);width:100%;max-width:30rem;
+    display:flex;flex-direction:column;align-items:center;gap:.6rem;
+    border:1px solid var(--line);background:rgba(233,233,240,.022);
+    padding:1rem 1.25rem;
+  }
+  @media (min-width:600px){
+    .pay{flex-direction:row;align-items:center;gap:1.1rem;width:auto;max-width:none;text-align:left}
+    .pay p{border-left:1px solid var(--line);padding-left:1.1rem}
+  }
+  .pay span{
+    flex:none;font-size:11px;font-weight:500;text-transform:uppercase;
+    letter-spacing:.18em;color:var(--indigo);
+  }
+  .pay p{margin:0;font-size:13.5px;line-height:1.6;color:var(--mute)}
+  .pay p b{color:var(--paper);font-weight:400}
+
   /* ---------------- Section : comment ça fonctionne ---------------- */
   .sec{position:relative;border-bottom:1px solid var(--line-soft)}
   .sec .wrap{padding-block:clamp(4rem,9vw,6.5rem)}
@@ -294,14 +312,61 @@
   .qa[open] .plus span:last-child{transform:scaleY(0)}
   .qa p{margin:0 0 1.5rem;padding-right:1.75rem;font-size:15px;line-height:1.75;color:var(--mute)}
 
-  .sec-cta{
-    max-width:46rem;margin:clamp(2.5rem,4vw,3.25rem) auto 0;
-    display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.1rem;
+  /* ---------------- Pied de page ---------------- */
+  .foot{position:relative;overflow:hidden;border-top:1px solid var(--line)}
+  /* Le mot-marque en filigrane, débordant par le bas : l'écriture du pied de page Indemnis. */
+  .foot-mark{
+    position:absolute;left:50%;bottom:-.12em;transform:translateX(-50%);
+    margin:0;pointer-events:none;user-select:none;white-space:nowrap;
+    font-family:var(--display);font-weight:300;letter-spacing:-.04em;
+    font-size:clamp(5.5rem,23vw,18rem);line-height:.8;
+    color:var(--paper);opacity:.075;
   }
-  .cta-line{
+  .foot .wrap{position:relative;padding-block:clamp(3.5rem,7vw,5.5rem) clamp(2rem,3vw,2.5rem)}
+
+  .foot-top{display:flex;flex-direction:column;gap:2.25rem}
+  @media (min-width:900px){
+    .foot-top{flex-direction:row;align-items:flex-start;justify-content:space-between}
+  }
+  .foot-id{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem;text-decoration:none}
+  .foot-id b{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.26em;color:var(--paper)}
+  .foot-id span{
+    font-size:10px;text-transform:uppercase;letter-spacing:.2em;
+    color:var(--mute);max-width:22rem;line-height:1.8;
+  }
+  .foot-id a{
+    margin-top:.35rem;font-size:12.5px;letter-spacing:.02em;
+    color:var(--mute);text-decoration:none;transition:color .15s;
+  }
+  .foot-id a:hover{color:var(--white)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:.9rem 2.5rem}
+  .foot-nav a{
+    font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--mute);text-decoration:none;transition:color .15s;
+  }
+  .foot-nav a:hover,.foot-legal a:hover{color:var(--white)}
+
+  .foot-cta{margin-top:clamp(3rem,6vw,5rem);max-width:40rem}
+  .foot-cta p{
     margin:0;font-family:var(--display);font-weight:300;
-    font-size:clamp(1.15rem,2.4vw,1.45rem);letter-spacing:-.015em;color:var(--paper);
+    font-size:clamp(1.55rem,4.2vw,2.6rem);line-height:1.12;letter-spacing:-.022em;
+    color:var(--paper);text-wrap:balance;
   }
+  .foot-cta p em{font-style:normal;font-weight:400;color:var(--white)}
+  .foot-cta .cta{margin-top:clamp(1.75rem,3vw,2.25rem)}
+  .foot-cta .micro{margin:1rem 0 0;font-size:12.5px;line-height:1.65}
+
+  .foot-legal{
+    margin-top:clamp(3rem,6vw,5rem);padding-top:1.75rem;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:.9rem;
+    font-size:11px;letter-spacing:.05em;line-height:1.6;color:var(--mute);
+  }
+  @media (min-width:760px){
+    .foot-legal{flex-direction:row;align-items:center;justify-content:space-between;gap:1.5rem}
+  }
+  .foot-legal p{margin:0}
+  .foot-legal nav{display:flex;flex-wrap:wrap;gap:1.5rem}
+  .foot-legal a{color:var(--mute);text-decoration:none;transition:color .15s}
 
   .in{animation:in .75s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--d,0s)}
   @keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
@@ -346,6 +411,11 @@
           </a>
           <p class="micro">Candidature en 1 minute. <b>Un seul partenaire par région, places limitées.</b></p>
         </div>
+
+        <div class="pay in" style="--d:.52s">
+          <span>Rémunération</span>
+          <p>Vous payez les demandes que vous recevez. <b>Pas d'abonnement.</b></p>
+        </div>
       </div>
     </div>
   </section>
@@ -354,7 +424,7 @@
     <div class="rule rule-l"></div>
     <div class="rule rule-r"></div>
 
-    <div class="wrap">
+    <div class="wrap" id="mecanisme">
       <p class="lab">Comment ça fonctionne</p>
       <h2>Nous générons la demande. <em>Vous faites le chantier.</em></h2>
       <p class="lead">Trois étapes, et aucune prospection de votre côté.</p>
@@ -433,7 +503,7 @@
     <div class="rule rule-l"></div>
     <div class="rule rule-r"></div>
 
-    <div class="wrap">
+    <div class="wrap" id="qui-sommes-nous">
       <div class="who">
         <figure class="who-fig">
           <div class="portrait" aria-hidden="true">
@@ -447,7 +517,7 @@
           <p class="lab">Qui sommes-nous</p>
           <h2>C'est nous qui <em>lisons votre candidature</em>.</h2>
           <p class="lead">Quartz Solutions est une marque de France Acquisition. Nous générons des demandes de clients par la publicité en ligne, dans plusieurs secteurs, et nous les confions à une entreprise par zone.</p>
-          <p class="lead">Léo pilote les campagnes et le suivi des demandes. Maxime lit les candidatures et appelle les entreprises retenues.</p>
+          <p class="lead">Nous sommes basés à Bordeaux et nous couvrons toute la France.</p>
           <p class="lead">Le désamiantage n'a pas de plateforme spécialisée. Un propriétaire qui découvre de l'amiante appelle d'abord son couvreur, qui ne peut pas y toucher. C'est là que nos campagnes le trouvent.</p>
         </div>
       </div>
@@ -458,7 +528,7 @@
     <div class="rule rule-l"></div>
     <div class="rule rule-r"></div>
 
-    <div class="wrap">
+    <div class="wrap" id="questions">
       <div class="faq-head">
         <p class="faq-lab"><i aria-hidden="true"></i>Vos questions<i aria-hidden="true"></i></p>
         <h2>Ce qu'on nous demande <em>le plus souvent</em>.</h2>
@@ -487,16 +557,47 @@
         </details>
       </div>
 
-      <div class="sec-cta">
-        <p class="cta-line">Votre région est peut-être encore libre.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="rule rule-l"></div>
+    <div class="rule rule-r"></div>
+    <p class="foot-mark" aria-hidden="true">Quartz</p>
+
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-id">
+          <b>Quartz Solutions</b>
+          <span>Chantiers de désamiantage, une entreprise par région</span>
+          <a href="mailto:quartzsolutions@gmail.com">quartzsolutions@gmail.com</a>
+        </div>
+        <nav class="foot-nav" aria-label="Navigation de pied de page">
+          <a href="#mecanisme">Comment ça fonctionne</a>
+          <a href="#qui-sommes-nous">Qui sommes-nous</a>
+          <a href="#questions">Questions</a>
+        </nav>
+      </div>
+
+      <div class="foot-cta">
+        <p>Votre région est peut-être <em>encore libre</em>.</p>
         <a class="cta" href="#candidature">
           Obtenir les demandes de ma région
           <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h11m0 0L7.5 2.5M12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <p class="micro">Candidature en 1 minute. <b>Un seul partenaire par région, places limitées.</b></p>
       </div>
+
+      <div class="foot-legal">
+        <p>© 2026 Quartz Solutions, marque de France Acquisition</p>
+        <p>Basés à Bordeaux, partout en France</p>
+        <nav aria-label="Informations légales">
+          <a href="../mentions-legales.html">Mentions légales</a>
+          <a href="../confidentialite.html">Confidentialité</a>
+        </nav>
+      </div>
     </div>
-  </section>
+  </footer>
 </div>
 </body>
 </html>
