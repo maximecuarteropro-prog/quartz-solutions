@@ -119,19 +119,13 @@
   /* La carte « rémunération » : le modèle à l'usage, dit en une ligne sous le CTA. */
   .pay{
     margin-top:clamp(1.9rem,3.2vw,2.5rem);width:100%;max-width:30rem;
-    display:flex;flex-direction:column;align-items:center;gap:.6rem;
+    display:flex;align-items:center;gap:.85rem;text-align:left;
     border:1px solid var(--line);background:rgba(233,233,240,.03);
-    padding:1rem 1.25rem;
+    padding:.9rem 1.1rem;
   }
-  @media (min-width:600px){
-    .pay{flex-direction:row;align-items:center;gap:1.1rem;width:auto;max-width:none;text-align:left}
-    .pay p{border-left:1px solid var(--line);padding-left:1.1rem}
-  }
-  .pay span{
-    flex:none;font-size:11px;font-weight:500;text-transform:uppercase;
-    letter-spacing:.18em;color:var(--indigo);
-  }
-  .pay p{margin:0;font-size:13.5px;line-height:1.6;color:var(--mute)}
+  @media (min-width:600px){ .pay{width:auto;max-width:none} }
+  .pay .bang{width:22px;height:22px;flex:none;color:var(--indigo)}
+  .pay p{margin:0;min-width:0;font-size:13.5px;line-height:1.6;color:var(--mute)}
   .pay p b{color:var(--paper);font-weight:400}
 
   /* ---------------- Section : comment ça fonctionne ---------------- */
@@ -415,7 +409,11 @@
         </div>
 
         <div class="pay in" style="--d:.52s">
-          <span>Rémunération</span>
+          <svg class="bang" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2.6" y="2.6" width="18.8" height="18.8" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M12 7.2v6.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="12" cy="16.9" r="1.05" fill="currentColor"/>
+          </svg>
           <p>Vous payez les demandes que vous recevez. <b>Pas d'abonnement.</b></p>
         </div>
       </div>
