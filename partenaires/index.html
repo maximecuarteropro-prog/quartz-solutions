@@ -120,7 +120,7 @@
   .pay{
     margin-top:clamp(1.9rem,3.2vw,2.5rem);width:100%;max-width:30rem;
     display:flex;flex-direction:column;align-items:center;gap:.6rem;
-    border:1px solid var(--line);background:rgba(233,233,240,.022);
+    border:1px solid var(--line);background:rgba(233,233,240,.03);
     padding:1rem 1.25rem;
   }
   @media (min-width:600px){
@@ -136,6 +136,8 @@
 
   /* ---------------- Section : comment ça fonctionne ---------------- */
   .sec{position:relative;border-bottom:1px solid var(--line-soft)}
+  /* Une section sur deux porte un voile translucide : les bandes se distinguent sans masquer le grain. */
+  .sec.alt{background:rgba(233,233,240,.032)}
   .sec .wrap{padding-block:clamp(4rem,9vw,6.5rem)}
 
   .lab{font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.24em;color:var(--mute)}
@@ -186,7 +188,7 @@
     order:3;margin-top:1.15rem;
     position:relative;width:100%;max-width:19.5rem;aspect-ratio:4/3;
     overflow:hidden;border:1px solid var(--line);
-    background:rgba(233,233,240,.022);
+    background:rgba(233,233,240,.04);
     display:flex;align-items:center;justify-content:center;padding:.8rem;
   }
   .panneau::before{
@@ -272,7 +274,7 @@
     position:relative;width:100%;max-width:20rem;aspect-ratio:4/5;
     display:flex;gap:2px;
   }
-  .lame{flex:1;border:1px solid var(--line);background:rgba(233,233,240,.022)}
+  .lame{flex:1;border:1px solid var(--line);background:rgba(233,233,240,.04)}
   .lame:nth-child(odd){transform:translateY(-3px)}
   .lame:nth-child(even){transform:translateY(3px)}
   .lame:first-child,.lame:nth-child(4){opacity:.65}
@@ -420,11 +422,11 @@
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec alt" id="mecanisme">
     <div class="rule rule-l"></div>
     <div class="rule rule-r"></div>
 
-    <div class="wrap" id="mecanisme">
+    <div class="wrap">
       <p class="lab">Comment ça fonctionne</p>
       <h2>Nous générons la demande. <em>Vous faites le chantier.</em></h2>
       <p class="lead">Trois étapes, et aucune prospection de votre côté.</p>
@@ -499,11 +501,11 @@
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="qui-sommes-nous">
     <div class="rule rule-l"></div>
     <div class="rule rule-r"></div>
 
-    <div class="wrap" id="qui-sommes-nous">
+    <div class="wrap">
       <div class="who">
         <figure class="who-fig">
           <div class="portrait" aria-hidden="true">
@@ -524,11 +526,11 @@
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec alt" id="questions">
     <div class="rule rule-l"></div>
     <div class="rule rule-r"></div>
 
-    <div class="wrap" id="questions">
+    <div class="wrap">
       <div class="faq-head">
         <p class="faq-lab"><i aria-hidden="true"></i>Vos questions<i aria-hidden="true"></i></p>
         <h2>Ce qu'on nous demande <em>le plus souvent</em>.</h2>
